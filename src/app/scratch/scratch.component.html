@@ -1,0 +1,37 @@
+<h3>List</h3>
+<ul>
+  <li *ngFor="let course of courses$" (click)=getID(course.Name)>{{course}}
+    <button  class="btn btn-primary" (click)="OnUpdate()"> Update</button>
+    <button  class="btn btn-primary" (click)="OnDelete()"> Delete</button>
+
+  </li>
+</ul>
+<h3>Course JSON</h3>
+<p>
+
+  {{ course$  |json}}
+</p>
+<h3>Author JSON</h3>
+
+<p>
+  {{ author$  |json}}
+</p>
+
+AS Keyword
+<ul>
+  <li>{{author$.name}}</li>
+  <li>{{author$.Students}}</li>
+  <li>{{author$.isPremium}}</li>
+</ul>
+
+<ul *ngIf="author$ as x">
+  <li>{{x.name}}</li>
+  <li>{{x.Students}}</li>
+  <li>{{x.isPremium}}</li>
+</ul>
+<h3>Adding an object</h3>
+<input type="text" name="coursename" #course>
+<button (click)="addCourse(course)">Add</button>
+<button (click)="delete()">Delete</button>
+
+<!-- <button (click)="ngOnDestroy()">Go offline</button> -->
